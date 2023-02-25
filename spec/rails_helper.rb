@@ -36,3 +36,4 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
+SimpleCov.start
