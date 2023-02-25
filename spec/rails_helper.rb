@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'vcr'
+require 'simplecov'
 
 
 ENV['RAILS_ENV'] ||= 'test'
