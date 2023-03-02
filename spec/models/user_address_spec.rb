@@ -1,6 +1,6 @@
-require 'rails-helper'
+require 'rails_helper'
 
-RSpec.describe user_address, type: :model do
+RSpec.describe UserAddress, type: :model do
   describe 'associations' do
     it {should belongs_to(:user)}
   end
