@@ -1,6 +1,6 @@
-require 'rails-helper'
+require 'rails_helper'
 
-RSpec.describe User_payment, type: :model do
+RSpec.describe UserPayment, type: :model do
   describe 'associations' do
     it {should belongs_to(:user)}
   end
