@@ -12,11 +12,16 @@
         <form>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
             <%= f.input :email,
-                        label: 'Email',
+                        label: false,
+                        placeholder: 'Enter your e-mail',
                         autofocus: true,
-                        input_html: { class: 'form-control form-control-lg my-3' } %>
+                        input_html: { class: 'form-control form-control-lg my-4' } %>
             <%= f.input :password,
-                        input_html: { class: 'form-control form-control-lg my-3' } %>
+                        required: true,
+                        input_html: { autocomplete: "new-password" },
+                        label: false,
+                        placeholder: 'Enter your password',
+                        input_html: { class: 'form-control form-control-lg my-4' } %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
           <div class="form-actions d-flex justify-content-between mt-3">
