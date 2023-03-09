@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_201018) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_120240) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "role", ["user", "admin"]
   create_enum "status", ["new_order", "payed", "in_transit", "delivered"]
 
   create_table "carts", force: :cascade do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_201018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.enum "order", default: "new_order", null: false, enum_type: "status"
+    t.enum "user", default: "user", null: false, enum_type: "role"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
