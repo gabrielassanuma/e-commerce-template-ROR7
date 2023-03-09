@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    description { "MyText" }
-    price { 1.5 }
-    category { nil }
-    discount { nil }
-    active { false }
+    name { Faker::Commerce.product_name }
+    description { Faker::Lorem.sentence }
+    price { Faker::Commerce.price }
+    association :category 
+    association :discount
+    active { true }
   end
 end
