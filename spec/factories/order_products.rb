@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :order_product do
-    product { nil }
-    order { nil }
-    quantity { 1 }
-    cart { nil }
+    association :product
+    association :order
+    quantity { Faker::Number.number(digits: 1) }
+    association :cart
   end
 end
