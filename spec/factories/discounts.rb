@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :discount do
-    name { "MyString" }
-    discount { 1.5 }
+    name { sale }
+    discount { Faker::Number.between(from: 0.0, to: 15.0)}
   end
 end
