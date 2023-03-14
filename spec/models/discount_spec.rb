@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Discount, type: :model do
   describe 'associations' do
-    it {should belong_to(:product)}
+    it {should have_many(:products)}
   end
 
   describe 'validations' do
