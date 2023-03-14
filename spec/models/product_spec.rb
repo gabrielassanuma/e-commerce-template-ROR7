@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'associations' do
-    it {should belongs_to(:categories)}
-    it {should belongs_to(:discounts)}
+    it {should belong_to(:category)}
+    it {should belong_to(:discount)}
     it {should have_many(:order_products)}
   end
 
