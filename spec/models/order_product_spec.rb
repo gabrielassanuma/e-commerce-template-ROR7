@@ -7,14 +7,5 @@ RSpec.describe OrderProduct, type: :model do
     it { should belong_to(:cart) }
     it { should belong_to(:product) }
   end
-
-  def optional(optional = true)
-    remove_submatcher(AssociationMatchers::RequiredMatcher)
-    add_submatcher(
-      AssociationMatchers::OptionalMatcher,
-      name,
-      optional,
-    )
-    self
-  end
+  
 end
