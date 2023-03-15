@@ -9,7 +9,6 @@
         <div class= "text-center mb-3">
           <h2>Login</h2>
         </div>
-        <form>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
             <%= f.input :email,
                         label: false,
@@ -33,7 +32,6 @@
             </div>
           </div>
         <% end %>
-        </form>
       </div>
     </div>
   </div>
