@@ -4,5 +4,6 @@ FactoryBot.define do
     last_name { Faker::Name.last_name  }
     email { Faker::Internet.email }
     phone_number { Faker::Number.number(digits: 9) }
+    role { :admin }
   end
 end
