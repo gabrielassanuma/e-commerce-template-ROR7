@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..20 }
   validates :first_name, :last_name, presence: true
 
-  enum role: [:user, :admin]
+  enum role: { admin: "admin", user: "user" }
 end
