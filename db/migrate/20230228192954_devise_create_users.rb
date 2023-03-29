@@ -6,6 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :first_name, null:false
       t.string :last_name, null: false
       t.string :phone_number
+      t.string :role, default: "user"
 
       t.string :encrypted_password, null: false, default: ""
       t.string   :reset_password_token
