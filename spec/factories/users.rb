@@ -5,6 +5,11 @@ FactoryBot.define do
     email { Faker::Internet.email }
     phone_number { Faker::Number.number(digits: 9) }
     password { Faker::Internet.password }
-    role { :admin }
+    role { :user }
+
+
+    trait :admin do
+      role { :admin }
+    end
   end
 end
