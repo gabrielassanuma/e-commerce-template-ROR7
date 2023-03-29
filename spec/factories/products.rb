@@ -6,5 +6,10 @@ FactoryBot.define do
     association :category 
     association :discount
     active { true }
+
+    trait :invalid do
+      name { "" }
+      description { "" } 
+    end
   end
 end
