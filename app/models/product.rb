@@ -4,4 +4,6 @@ class Product < ApplicationRecord
   has_many :order_products
 
   validates :name, :description, :price, :active, presence: true
+
+  has_many_attached :photos
 end
