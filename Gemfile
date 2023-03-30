@@ -15,6 +15,8 @@ gem "sprockets-rails"
 
 gem 'devise'
 
+gem "cloudinary"
+
 # Use postgres as the database for Active Record
 gem "pg"
 
