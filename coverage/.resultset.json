@@ -1,0 +1,62 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/controllers/products_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/product.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/category.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/discount.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1680096299
+  }
+}
