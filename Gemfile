@@ -71,6 +71,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rails-controller-testing'
 
 end
 
