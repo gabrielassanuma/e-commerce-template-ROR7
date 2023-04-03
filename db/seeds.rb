@@ -7,12 +7,12 @@ UserPayment.destroy_all
 puts "== User's payment destroyed ==="
 User.destroy_all
 puts "======= Users destroyed ======="
+Product.destroy_all
+puts "====== Products destroyed ====="
 Category.destroy_all
 puts "==== Categories destroyed ====="
 Discount.destroy_all
 puts "===== Discounts destroyed ====="
-Product.destroy_all
-puts "====== Products destroyed ====="
 
 puts "====== Creating Users ========"
 admin = User.new(email: "admin@admin.com", first_name: "admin", last_name:"admin", phone_number: "000000000", password: 111111, password_confirmation: 111111, role: "admin")
@@ -87,6 +87,7 @@ end
 puts "===== Discounts created ======="
 
 puts "===== Creating products ======="
+file = URI.open("https://dummyimage.com/450x300/dee2e6/6c757d.jpg")
 10.times do | i |
   product = Product.new(
   name: "Product #{ i + 1 }",
@@ -94,8 +95,9 @@ puts "===== Creating products ======="
   price: 20,
   category: categories.sample,
   discount: discounts.sample,
-  active: true
+  active: true,
   )
+  product.photos.attach(io: file, filename: "product.png", content_type: "image/png")
   product.save!
 end
 puts "====== Products created ======="
