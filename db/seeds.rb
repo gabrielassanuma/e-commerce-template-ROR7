@@ -55,3 +55,4 @@ users.each do | user |
 end
 puts "=== User's payment created ===="
 
+puts ""
