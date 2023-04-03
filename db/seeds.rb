@@ -1,8 +1,11 @@
 puts "======== Dropping DB ========="
 puts "=============================="
 
+UserAddress.destroy_all
+puts "== User's adresses destroyed =="
 User.destroy_all
 puts "======= Users destroyed ======"
+
 
 puts "====== Creating Users ========"
 admin = User.new(email: "admin@admin.com", first_name: "admin", last_name:"admin", phone_number: "000000000", password: 111111, password_confirmation: 111111, role: "admin")
@@ -33,7 +36,20 @@ users.each do | user |
     main: true
   )
   user_address.save!
-
 end 
 puts "=== User's address created ===="
+
+puts "== Creating User's payments ==="
+users.each do | user |
+  2.times do 
+    user_payments = UserPayment.new(
+      user: user,
+      card_name: "#{user.first_name} #{user.last_name}",
+      card_number: Faker::Finance.credit_card,
+      card_expiration: "#{[0..12].sample}#{[23..32].sample}"
+    )
+    user_payments.save!
+  end
+end
+puts "=== User's payment created ===="
 
