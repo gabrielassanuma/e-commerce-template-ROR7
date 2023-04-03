@@ -3,6 +3,8 @@ puts "=============================="
 
 UserAddress.destroy_all
 puts "== User's adresses destroyed =="
+UserPayment.destroy_all
+puts "== User's payment destroyed ==="
 User.destroy_all
 puts "======= Users destroyed ======"
 
@@ -45,8 +47,8 @@ users.each do | user |
     user_payments = UserPayment.new(
       user: user,
       card_name: "#{user.first_name} #{user.last_name}",
-      card_number: Faker::Finance.credit_card,
-      card_expiration: "#{[0..12].sample}#{[23..32].sample}"
+      card_number: Faker::Finance.credit_card(:mastercard),
+      card_expiration: "#{rand(1..12).to_s.rjust(2, '0')}#{rand(23..32)}"
     )
     user_payments.save!
   end
