@@ -6,8 +6,13 @@ puts "== User's adresses destroyed =="
 UserPayment.destroy_all
 puts "== User's payment destroyed ==="
 User.destroy_all
-puts "======= Users destroyed ======"
-
+puts "======= Users destroyed ======="
+Category.destroy_all
+puts "==== Categories destroyed ====="
+Discount.destroy_all
+puts "===== Discounts destroyed ====="
+Product.destroy_all
+puts "====== Products destroyed ====="
 
 puts "====== Creating Users ========"
 admin = User.new(email: "admin@admin.com", first_name: "admin", last_name:"admin", phone_number: "000000000", password: 111111, password_confirmation: 111111, role: "admin")
@@ -55,4 +60,42 @@ users.each do | user |
 end
 puts "=== User's payment created ===="
 
-puts ""
+puts "===== Creating Categories ====="
+categories = []
+10.times do | i |
+  category = Category.new(
+    name: "Category #{i + 1}",
+    position: i + 1 
+  )
+  category.save!
+  categories << category
+end
+puts "===== Categories created ======" 
+
+puts "===== Creating discounts ======"
+discounts = []
+name = ["10% off", "15% off", "20% off" ]
+percent_discount = [0.90, 0.85, 0.80]
+3.times do | i |
+  discount = Discount.new(
+    name: name[i],
+    discount: percent_discount[i]
+  )
+  discount.save!
+  discounts << discount
+end
+puts "===== Discounts created ======="
+
+puts "===== Creating products ======="
+10.times do | i |
+  product = Product.new(
+  name: "Product #{ i + 1 }",
+  description: "Product #{ i + 1 } description",
+  price: 20,
+  category: categories.sample,
+  discount: discounts.sample,
+  active: true
+  )
+  product.save!
+end
+puts "====== Products created ======="
