@@ -1,6 +1,58 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/controllers/products_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/product.rb": {
         "lines": [
           1,
@@ -31,17 +83,8 @@
           1,
           null
         ]
-      },
-      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/order_product.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1680617941
+    "timestamp": 1680621465
   }
 }
