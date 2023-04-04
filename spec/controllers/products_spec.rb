@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'byebug'
 
 RSpec.describe ProductsController, type: :controller do
   describe "GET#index" do
@@ -16,6 +17,15 @@ RSpec.describe ProductsController, type: :controller do
       product = create(:product)
       get :show, params: { id: product.id}
       expect(assigns(:product)).to eq(product)
+    end
+
+    it "assigns 4 products with same category to @related_products" do
+      sign_in(create(:user, :admin))
+      product = create(:product)
+      related_products = create_list(:product, 4, category_id: product.category_id)
+      get :show, params: { id: product.id }
+      expect(assigns(:related_products)).to match_array(related_products)
+      byebug
     end
   end
 

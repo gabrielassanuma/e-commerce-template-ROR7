@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-  end 
+    @related_products = Product.where(category_id: @product.category_id).limit(4)
+  end
 
   private
 
