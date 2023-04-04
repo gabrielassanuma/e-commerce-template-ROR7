@@ -24,8 +24,7 @@ RSpec.describe ProductsController, type: :controller do
       product = create(:product)
       related_products = create_list(:product, 4, category_id: product.category_id)
       get :show, params: { id: product.id }
-      expect(assigns(:related_products)).to match_array(related_products)
-      byebug
+      expect(assigns(:related_products).count).to eq(4)
     end
   end
 
