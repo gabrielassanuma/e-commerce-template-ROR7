@@ -1,6 +1,7 @@
-puts "======== Dropping DB ========="
-puts "=============================="
+puts "======== Dropping DB =========="
+puts "==============================="
 
+puts "==============================="
 UserAddress.destroy_all
 puts "== User's adresses destroyed =="
 UserPayment.destroy_all
@@ -13,11 +14,12 @@ Category.destroy_all
 puts "==== Categories destroyed ====="
 Discount.destroy_all
 puts "===== Discounts destroyed ====="
+puts "==============================="
 
-puts "====== Creating Users ========"
+puts "====== Creating Users ========="
 admin = User.new(email: "admin@admin.com", first_name: "admin", last_name:"admin", phone_number: "000000000", password: 111111, password_confirmation: 111111, role: "admin")
 admin.save!
-puts "====== Admin created ========="
+puts "====== Admin created =========="
 users = []
 10.times do 
   user = User.new(
@@ -31,7 +33,8 @@ users = []
   user.save!
   users << user 
 end
-puts "====== Users created ========="
+puts "====== Users created =========="
+puts "==============================="
 
 puts "=== Creating User's address ==="
 users.each do | user |
@@ -45,6 +48,7 @@ users.each do | user |
   user_address.save!
 end 
 puts "=== User's address created ===="
+puts "==============================="
 
 puts "== Creating User's payments ==="
 users.each do | user |
@@ -59,6 +63,7 @@ users.each do | user |
   end
 end
 puts "=== User's payment created ===="
+puts "==============================="
 
 puts "===== Creating Categories ====="
 categories = []
@@ -71,6 +76,7 @@ categories = []
   categories << category
 end
 puts "===== Categories created ======" 
+puts "==============================="
 
 puts "===== Creating discounts ======"
 discounts = []
@@ -85,10 +91,11 @@ percent_discount = [0.90, 0.85, 0.80]
   discounts << discount
 end
 puts "===== Discounts created ======="
+puts "==============================="
 
 puts "===== Creating products ======="
 file = URI.open("https://dummyimage.com/450x300/dee2e6/6c757d.jpg")
-10.times do | i |
+100.times do | i |
   product = Product.new(
   name: "Product #{ i + 1 }",
   description: "Product #{ i + 1 } description",
@@ -101,3 +108,4 @@ file = URI.open("https://dummyimage.com/450x300/dee2e6/6c757d.jpg")
   product.save!
 end
 puts "====== Products created ======="
+puts "==============================="
