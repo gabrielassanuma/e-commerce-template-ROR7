@@ -2,14 +2,18 @@
     <%= render "shared/navbar" %>
     <%= render "shared/banner_home_page" %>
     <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
+        <div class="container px-4 px-lg-5 mt-3">
+            <div class="d-flex justify-content-end mb-4">
               <%= paginate @products %>
+            </div>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
               <% @products.each do | product |  %>
                 <%= render "shared/product_card", product: product %>
               <% end %>
             </div>
+            <div class="d-flex justify-content-end">
               <%= paginate @products %>
+            </div>
         </div>
     </section>
     <%= render "shared/footer" %>
