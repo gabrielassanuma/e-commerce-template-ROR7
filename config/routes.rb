@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products, except: [:destroy]
   get 'about', to: 'pages#about', as: 'about'
+  get 'admin_dashboard', to: 'pages#admin_dashboard', as: 'admin_dashboard'
 
 end
