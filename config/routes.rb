@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :products, except: [:destroy]
   get 'about', to: 'pages#about', as: 'about'
   get 'admin_dashboard', to: 'pages#admin_dashboard', as: 'admin_dashboard'
-
+  resources :categories, except: [:destroy]
 end
