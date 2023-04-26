@@ -37,6 +37,12 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def deactive
+    @category = Category.find(params[:id])
+    @category.deactive!
+    redirect_to categories_path, notice: 'Product was deactived'
+  end
+
   private
 
   def require_admin
