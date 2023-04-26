@@ -20,7 +20,7 @@
                 <td>
                   <%= link_to 'Show', category, class: "btn btn-outline-primary my-1" %>
                   <%= link_to 'Edit', edit_category_path(category), class: "btn btn-outline-secondary my-1" %>
-                  <%# <%= link_to 'Deactive', deactive_product_path(product), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-1", remote: true %> 
+                  <%= link_to 'Deactive', deactive_category_path(category), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-1", remote: true %>
               </tr>
             <% end %>
           </tbody>
