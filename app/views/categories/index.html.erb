@@ -6,7 +6,11 @@
         <div class="text-center">
           <h1>Categories</h1>
         </div>
-        <%= link_to 'Show All Categories', categories_path(active: false), class: "btn btn-outline-primary my-1" %>
+        <% if session[:show_all_categories] %>
+          <%= link_to 'Show Active Categories', categories_path, class: "btn btn-outline-primary my-1" %>
+        <% else %>
+          <%= link_to 'Show All Categories', categories_path(active: false), class: "btn btn-outline-primary my-1" %>
+        <% end %>
         <table class="table table-hover mt-3 text-center">
           <thead>
             <tr>

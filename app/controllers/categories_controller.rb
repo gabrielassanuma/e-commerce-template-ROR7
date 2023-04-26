@@ -6,8 +6,10 @@ class CategoriesController < ApplicationController
   def index
     if params[:active] == 'false'
       @categories = Category.all
+      session[:show_all_categories] = true
     else
       @categories = Category.where(active: true)
+      session[:show_all_categories] = false
     end
   end
 
