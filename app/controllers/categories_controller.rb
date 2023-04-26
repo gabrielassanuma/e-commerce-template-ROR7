@@ -33,6 +33,7 @@ class CategoriesController < ApplicationController
       redirect_to @category
     else
       render :new
+    end
   end
 
   private
