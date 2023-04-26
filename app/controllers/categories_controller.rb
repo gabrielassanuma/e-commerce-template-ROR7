@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :deactive ]
 
   def index
-    @categories = Category.all
+    if params[:active] == 'false'
+      @categories = Category.all
+    else
+      @categories = Category.where(active: true)
+    end
   end
 
   def show
