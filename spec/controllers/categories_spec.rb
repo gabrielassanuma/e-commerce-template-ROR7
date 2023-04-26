@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe CategoriesController, type: :controller do
+RSpec.describe CategoriesController, type: :controller do
   describe "GET#index" do
     it "assigns all categories to @categories" do
       sign_in(create(:user, :admin))
