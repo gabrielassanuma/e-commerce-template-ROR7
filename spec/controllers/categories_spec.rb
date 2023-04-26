@@ -92,6 +92,34 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
+  describe "PUT#update" do
+    context "with valid params" do
+      it "updates the request product" do
+        sign_in(create(:user, :admin))
+        category = create(:category)
+        put :update, params: { id: category.id, category: {name: "new_name"} }
+        category.reload
+        expect(category.name).to eq("new_name")
+      end
+
+      it "should redirect to the updated product" do
+        sign_in(create(:user, :admin))
+        category = create(:category)
+        put :update, params: { id: category.id, category: {name: "new_name"} }
+        expect(response).to redirect_to(Category.last)
+      end
+    end
+
+    context "with invalid params" do
+      it "should redirect to edit template" do
+        sign_in(create(:user, :admin))
+        category = create(:category)
+        put :update, params: { id: category.id, category: attributes_for(:category, :invalid) }
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
   describe "PUT#deactive" do
     it "should change product.active to false" do
       sign_in(create(:user, :admin))
