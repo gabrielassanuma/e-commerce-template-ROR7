@@ -46,6 +46,15 @@ RSpec.describe CategoriesController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "assigns a new category to @category" do
+      sign_in(create(:user, :admin))
+      get :new
+      expect(assigns(:category)).to be_a_new(Category)
+    end
+  end
+
+
   describe "GET#edit" do
     it "assigns the requested category to @category" do
       sign_in(create(:user, :admin))
