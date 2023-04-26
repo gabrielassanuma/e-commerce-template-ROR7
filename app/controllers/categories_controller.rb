@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    if category.save
+    if @category.save
       redirect_to @category
     else
       render :new
