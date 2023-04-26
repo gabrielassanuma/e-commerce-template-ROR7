@@ -16,8 +16,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    if category.save
-      redirect_to @category
+    if @category.save
+      redirect_to @category, notice: 'Category was successfully updated.'
     else
       render :new
     end
@@ -27,12 +27,13 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
+
   def update
     @category = Category.find(params[:id])
-    if @category.save
-      redirect_to @category
+    if @category.update(category_params)
+      redirect_to @category, notice: 'Category was successfully updated.'
     else
-      render :new
+      render :edit
     end
   end
 
@@ -43,5 +44,9 @@ class CategoriesController < ApplicationController
       flash[:alert] = "You are not allowed visit this page"
       redirect_to root_path
     end
+  end
+
+  def category_params
+    params.require(:category).permit(:name, :position)
   end
 end
