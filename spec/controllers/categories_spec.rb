@@ -1,6 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
+  describe '#require_admin' do
+    context 'when user is admin' do
+      it 'allows the action to proceed' do
+        sign_in(create(:user, :admin))
+        category = create(:category)
+        get :show, params: { id: category.id }
+        expect(response).to be_successful
+      end
+    end
+
+    context 'when user is not admin' do
+      it 'redirects to the root path' do
+        sign_in(create(:user))
+        category = create(:category)
+        get :show, params: { id: category.id }
+        expect(response).to redirect_to(root_path)
+      end
+
+      it 'displays a flash message' do
+        sign_in(create(:user))
+        category = create(:category)
+        get :show, params: { id: category.id }
+        expect(flash[:alert]).to eq("You are not allowed visit this page")
+      end
+    end
+  end
+
   describe "GET#index" do
     it "assigns all categories to @categories" do
       sign_in(create(:user, :admin))
@@ -53,6 +80,14 @@ RSpec.describe CategoriesController, type: :controller do
         post :create, params: { category: attributes_for(:category, :invalid) }
         expect(response).to render_template(:new)
       end
+    end
+  end
+
+  describe "PUT#deactive" do
+    it "should change product.active to false" do
+      sign_in(create(:user, :admin))
+      category = create(:category)
+      expect { patch :deactive, params: { id: category.id } }.to change { category.reload.active }.from(true).to(false)
     end
   end
 

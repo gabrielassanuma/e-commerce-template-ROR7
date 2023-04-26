@@ -1,13 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
+  before_action :set_category, only: [:show, :edit, :update, :deactive ]
 
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
   end
 
   def new
@@ -24,12 +24,10 @@ class CategoriesController < ApplicationController
   end
 
   def edit 
-    @category = Category.find(params[:id])
   end
 
 
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to @category, notice: 'Category was successfully updated.'
     else
@@ -38,7 +36,6 @@ class CategoriesController < ApplicationController
   end
 
   def deactive
-    @category = Category.find(params[:id])
     @category.deactive!
     redirect_to categories_path, notice: 'Product was deactived'
   end
@@ -54,5 +51,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :position)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 end
