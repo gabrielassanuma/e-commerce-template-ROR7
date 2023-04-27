@@ -20,21 +20,23 @@
                 <th><h3>Actions</h3></th>
             </tr>
           </thead>
-          <tbody data-controller="drag">
-            <% @categories.each do |category| %>
-              <tr data-id="<%= category.id %>">
-                <td><%= category.name %></td>
-                <td><%= category.position %></td>
-                <td><%= category.active == true ? "Active" : "Deactive" %></td>
-                <td>
-                  <%= link_to 'Show', category, class: "btn btn-outline-primary my-1" %>
-                  <% if category.active == true %>
-                    <%= link_to 'Edit', edit_category_path(category), class: "btn btn-outline-secondary my-1" %>
-                    <%= link_to 'Deactive', deactive_category_path(category), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-1", remote: true %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
+          <tbody>
+            <div data-controller="drag">
+              <% @categories.each do |category| %>
+                <tr data-id="<%= category.id %>">
+                  <td><%= category.name %></td>
+                  <td><%= category.position %></td>
+                  <td><%= category.active == true ? "Active" : "Deactive" %></td>
+                  <td>
+                    <%= link_to 'Show', category, class: "btn btn-outline-primary my-1" %>
+                    <% if category.active == true %>
+                      <%= link_to 'Edit', edit_category_path(category), class: "btn btn-outline-secondary my-1" %>
+                      <%= link_to 'Deactive', deactive_category_path(category), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-1", remote: true %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </div>
           </tbody>
         </table>
         <%= link_to 'ADD New Category', new_category_path, class: "btn btn-outline-primary my-1" %>
