@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy] do
     patch :deactive, on: :member
   end
+  resources :discounts, except: [:destroy] do
+    patch :deactive, on: :member
+  end
 end
