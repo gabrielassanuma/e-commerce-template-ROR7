@@ -22,7 +22,6 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.position = Category.last_position + 1
     if @category.save
       redirect_to @category, notice: 'Category was successfully updated.'
     else

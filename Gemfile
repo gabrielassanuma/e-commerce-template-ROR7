@@ -100,3 +100,5 @@ group :test do
   gem 'simplecov'
   gem 'vcr'
 end
+
+gem "acts_as_list", "~> 1.1"
