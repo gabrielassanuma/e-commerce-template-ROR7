@@ -22,6 +22,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+    @category.position = Category.last_position + 1
     if @category.save
       redirect_to @category, notice: 'Category was successfully updated.'
     else
@@ -56,7 +57,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:name, :position)
+    params.require(:category).permit(:name)
   end
 
   def set_category
