@@ -11,7 +11,6 @@ export default class extends Controller {
     })
   }
   end(event) {
-    const categoryId = event.item.dataset.id
-    console.log(`Category ${categoryId} moved`)
+    console.log(event)
   }
 }
