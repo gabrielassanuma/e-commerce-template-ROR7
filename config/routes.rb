@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'admin_dashboard', to: 'pages#admin_dashboard', as: 'admin_dashboard'
   resources :categories, except: [:destroy] do
     patch :deactive, on: :member
+    patch :move, on: :member
   end
   resources :discounts, except: [:destroy] do
     patch :deactive, on: :member
