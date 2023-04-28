@@ -21,7 +21,7 @@ gem 'devise'
 gem "cloudinary"
 
 # Use postgres as the database for Active Record
-gem "pg"
+gem "pg", "~> 1.4.5"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -102,3 +102,4 @@ group :test do
 end
 
 gem "acts_as_list", "~> 1.1"
+
