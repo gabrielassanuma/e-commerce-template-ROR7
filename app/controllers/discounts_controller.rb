@@ -1,7 +1,7 @@
 class DiscountsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
-  before_action :discount, only: [:show, :edit, :update, :deactive ]
+  before_action :set_discount, only: [:show, :edit, :update, :deactive ]
 
   def index
     if params[:active] == 'false'
