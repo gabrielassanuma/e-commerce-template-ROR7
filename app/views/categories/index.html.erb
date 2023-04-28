@@ -20,8 +20,8 @@
                 <th><h3>Actions</h3></th>
             </tr>
           </thead>
-          <tbody>
-            <div data-controller="drag">
+          <tbody data-controller="drag" data-drag-url="/categories/:id/move">
+            <div>
               <% @categories.each do |category| %>
                 <tr data-id="<%= category.id %>">
                   <td><%= category.name %></td>
