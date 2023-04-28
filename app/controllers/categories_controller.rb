@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin
-  before_action :set_category, only: [:show, :edit, :update, :deactive ]
+  before_action :set_category, only: [:show, :edit, :update, :deactive, :move]
 
   def index
     if params[:active] == 'false'
@@ -44,6 +44,10 @@ class CategoriesController < ApplicationController
   def deactive
     @category.deactive!
     redirect_to categories_path, notice: 'Product was deactived'
+  end
+
+  def move
+    @category.insert_at(params[:position].to_i)
   end
 
   private
