@@ -22,7 +22,7 @@
           </thead>
           <tbody data-controller="drag" data-drag-url="/categories/:id/move">
             <div>
-              <% @categories.each do |category| %>
+              <% @categories.order(position: :asc).each do |category| %>
                   <tr data-id="<%= category.id %>">
                     <td><%= category.name %></td>
                     <td><%= category.position %></td>
