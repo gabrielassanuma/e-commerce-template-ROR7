@@ -1,0 +1,17 @@
+<body>
+    <div class="container position-relative bg-white d-flex p-0">
+      <%= render "shared/sidebar" %>
+      <!-- Content Start -->
+      <div class="container">
+        <h1>Discount Details</h1>
+        <dl>
+          <dt>Name</dt>
+          <dd><%= @discount.name %></dd>
+          <dt>Discount</dt>
+          <dd><%= "#{((1 - @discount.discount) * 100).round(0)}%"%></dd>
+        </dl>
+        <%= link_to 'Edit', edit_discount_path(@discount), class: "btn btn-outline-primary my-1" %>
+        <%= link_to 'Back', discounts_path, class: "btn btn-outline-primary my-1" %>
+      </div>
+    </div>
+</body>
