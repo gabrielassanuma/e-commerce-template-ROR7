@@ -1,0 +1,51 @@
+<body>
+    <div class="container position-relative bg-white d-flex p-0">
+      <%= render "shared/sidebar" %>
+      <!-- Content Start -->
+      <div class="container mt-3">
+        <div class="text-center">
+          <h1>Products</h1>
+        </div>
+        <% if session[:show_all_products] %>
+          <%= link_to 'Show Active Products', admin_products_index_path, class: "btn btn-outline-primary my-1" %>
+        <% else %>
+          <%= link_to 'Show All Products', admin_products_index_path(active: false), class: "btn btn-outline-primary my-1" %>
+        <% end %>
+        <table class="table table-hover mt-3 text-center">
+          <thead>
+            <tr>
+                <th><h3>Name</h3></th>
+                <th><h3>Description</h3></th>
+                <th><h3>Price</h3></th>
+                <th><h3>Category</h3></th>
+                <th><h3>Discount</h3></th>
+                <th><h3>Active</h3></th>
+            </tr>
+          </thead>
+          <tbody>
+            <div>
+              <% @products.each do |product| %>
+                  <tr>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.category.name %></td>
+                    <td><%= product.discount.name %></td>
+                    <td><%= product.active == true ? "Active" : "Deactive" %></td>
+                    <td>
+                      <%= link_to 'Show', product, class: "btn btn-outline-primary my-1" %>
+                      <% if product.active == true %>
+                        <%= link_to 'Edit', edit_product_path(product), class: "btn btn-outline-secondary my-1" %>
+                        <%# <%= link_to 'Deactive', deactive_product_path(product), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger my-1", remote: true %> 
+                      <% end %>
+                    </td>
+                  </tr>
+                </div>
+              <% end %>
+            </div>
+          </tbody>
+        </table>
+        <%= link_to 'ADD New Category', new_product_path, class: "btn btn-outline-primary my-1" %>
+      </div>
+    </div>
+</body>
