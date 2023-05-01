@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/controllers/discounts_controller.rb": {
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/controllers/categories_controller.rb": {
         "lines": [
           1,
           1,
@@ -52,6 +52,10 @@
           null,
           null,
           1,
+          0,
+          null,
+          null,
+          1,
           null,
           1,
           15,
@@ -98,20 +102,22 @@
           null
         ]
       },
-      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/discount.rb": {
+      "/Users/gabrielassanuma/code/gabrielassanuma/e-commerce-template-ROR7/app/models/category.rb": {
         "lines": [
           1,
           1,
           null,
           1,
+          1,
           null,
           1,
           1,
+          null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1682680627
+    "timestamp": 1682931108
   }
 }
