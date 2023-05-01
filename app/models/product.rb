@@ -6,4 +6,8 @@ class Product < ApplicationRecord
   validates :name, :description, :price, :active, presence: true
 
   has_many_attached :photos
+
+  def deactive!
+    update(active: false)
+  end
 end
